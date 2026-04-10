@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://hkht8513wb5m"]
 
 [ext_resource type="Script" uid="uid://cy2f17jnotnwx" path="res://CardFactory.gd" id="1_x065e"]
-[ext_resource type="Script" uid="uid://dkcbo8o4he0t1" path="res://hand_ui.gd" id="2_5lv0q"]
 
 [node name="Importer" type="Node" unique_id=925150122]
 script = ExtResource("1_x065e")
-
-[node name="HandUI" type="Node2D" parent="." unique_id=1014238028]
-position = Vector2(960, 800)
-script = ExtResource("2_5lv0q")

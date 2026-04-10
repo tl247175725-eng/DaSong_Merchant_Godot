@@ -36,12 +36,12 @@ func add_card_ui(data: BaseCard):
 	update_hand_positions()
 
 # 核心：计算每张牌应该在的位置
+# hand_ui.gd
 func update_hand_positions():
-	# 这里可以调用你之前的 HandManager 排序逻辑
-	# 暂时先简单按加入顺序排成一排
 	var start_x = -(cards_in_hand.size() - 1) * spacing / 2.0
 	for i in range(cards_in_hand.size()):
-		cards_in_hand[i].target_position = Vector2(start_x + i * spacing, 500)
+		# Y 设为 0，因为 HandUI 节点已经定好高度了
+		cards_in_hand[i].target_position = Vector2(start_x + i * spacing, 0)
 
 func _on_card_drag_ended():
 	# 拖拽结束后，重新检查接龙逻辑或重新排序

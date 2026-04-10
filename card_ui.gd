@@ -12,13 +12,13 @@ func _ready():
 	# 简单的平滑移动：每帧向目标位置靠拢
 	# 也可以用 Tween，但这里用 lerp 更适合实时跟随
 	pass
-
+# card_ui.gd
 func _process(delta):
 	if is_dragging:
 		global_position = get_global_mouse_position() + drag_offset
 	else:
-		# 丝滑归位：这行是自动排序动画的核心
-		global_position = global_position.lerp(target_position, 15 * delta)
+		# 【关键修改】改用 position，这样它会相对于 HandUI 这个担子来排队
+		position = position.lerp(target_position, 15 * delta)
 
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:

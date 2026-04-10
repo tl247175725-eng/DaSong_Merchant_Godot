@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://f5pofhhb1ft1"]
+
+[ext_resource type="Script" uid="uid://dkcbo8o4he0t1" path="res://hand_ui.gd" id="1_80nbo"]
+
+[node name="Game" type="Node2D" unique_id=534657891]
+
+[node name="HandUI" type="Node2D" parent="." unique_id=1067427791]
+position = Vector2(960, 800)
+script = ExtResource("1_80nbo")
+spacing = 150.0
