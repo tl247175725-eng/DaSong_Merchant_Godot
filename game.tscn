@@ -1,8 +1,22 @@
 [gd_scene format=3 uid="uid://f5pofhhb1ft1"]
 
 [ext_resource type="Script" uid="uid://dkcbo8o4he0t1" path="res://hand_ui.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dsky7lon3l85v" path="res://GameManager.gd" id="1_e2o6t"]
 
 [node name="Game" type="Node2D" unique_id=534657891]
+script = ExtResource("1_e2o6t")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1384810072]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer" unique_id=28931521]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
 [node name="HandUI" type="Node2D" parent="." unique_id=1067427791]
 position = Vector2(960, 800)
