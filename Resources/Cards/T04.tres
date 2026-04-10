@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_7ac03"]
+
+[resource]
+script = ExtResource("1_7ac03")
+card_id = "T04"
+card_name = "茉莉花茶"
+suit = 0
+rank = 4
+base_value = 70
+description = "极受城中女眷喜爱。"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_b2msp"]
+
+[resource]
+script = ExtResource("1_b2msp")
+card_id = "P07"
+card_name = "磁州窑瓶"
+suit = 1
+rank = 7
+base_value = 300
+description = "黑白对比鲜明。"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_mt1bm"]
+
+[resource]
+script = ExtResource("1_mt1bm")
+card_id = "S08"
+card_name = "杭罗"
+suit = 2
+rank = 8
+base_value = 380
+description = "透气性极好。"

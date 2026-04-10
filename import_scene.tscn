@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hkht8513wb5m"]
+
+[ext_resource type="Script" uid="uid://cy2f17jnotnwx" path="res://CardFactory.gd" id="1_x065e"]
+
+[node name="Importer" type="Node" unique_id=925150122]
+script = ExtResource("1_x065e")

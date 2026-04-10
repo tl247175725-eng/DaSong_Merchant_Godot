@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_dionv"]
+
+[resource]
+script = ExtResource("1_dionv")
+card_id = "S03"
+card_name = "绣线(12色)"
+suit = 2
+rank = 3
+base_value = 50
+description = "彩色丝线。"

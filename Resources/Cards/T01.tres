@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_uo3v3"]
+
+[resource]
+script = ExtResource("1_uo3v3")
+card_id = "T01"
+card_name = "碎茶末"
+suit = 0
+description = "穷苦人家解渴用的。"

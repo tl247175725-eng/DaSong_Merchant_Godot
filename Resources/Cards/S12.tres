@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_ecnby"]
+
+[resource]
+script = ExtResource("1_ecnby")
+card_id = "S12"
+card_name = "宋锦匹料"
+suit = 2
+rank = 12
+base_value = 1500
+description = "纹样雅致。"

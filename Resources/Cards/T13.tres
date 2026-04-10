@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_nxdap"]
+
+[resource]
+script = ExtResource("1_nxdap")
+card_id = "T13"
+card_name = "仙茶"
+suit = 0
+rank = 13
+base_value = 1500
+description = "传闻饮之可延年益寿。"

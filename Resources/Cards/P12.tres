@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_lniel"]
+
+[resource]
+script = ExtResource("1_lniel")
+card_id = "P12"
+card_name = "汝窑天青碟"
+suit = 1
+rank = 12
+base_value = 1800
+description = "雨过天青云破处。"

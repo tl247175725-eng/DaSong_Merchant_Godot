@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_cr0nr"]
+
+[resource]
+script = ExtResource("1_cr0nr")
+card_id = "S01"
+card_name = "粗麻布"
+suit = 2
+base_value = 12
+description = "苦力们穿的布料。"

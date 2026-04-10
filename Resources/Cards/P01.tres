@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_e52ro"]
+
+[resource]
+script = ExtResource("1_e52ro")
+card_id = "P01"
+card_name = "粗陶罐"
+suit = 1
+base_value = 15
+description = "农家腌酸菜用的。"

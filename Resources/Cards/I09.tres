@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_o0avf"]
+
+[resource]
+script = ExtResource("1_o0avf")
+card_id = "I09"
+card_name = "沉香木"
+suit = 3
+rank = 9
+base_value = 400
+description = "沉水之香。"

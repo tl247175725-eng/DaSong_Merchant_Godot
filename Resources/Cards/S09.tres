@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_ee6mw"]
+
+[resource]
+script = ExtResource("1_ee6mw")
+card_id = "S09"
+card_name = "云缎"
+suit = 2
+rank = 9
+base_value = 520
+description = "缎面光亮如镜。"

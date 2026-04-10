@@ -11,12 +11,9 @@ config_version=5
 [application]
 
 config/name="货郎记卡牌roguelite"
+run/main_scene="uid://hkht8513wb5m"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-SignalBus="*uid://cay56n57g2rmj"
 
 [display]
 
@@ -26,7 +23,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/sync_satellite/plugin.cfg")
+enabled=PackedStringArray()
 
 [physics]
 

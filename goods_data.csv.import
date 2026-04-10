@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://hk8s35k12nhf"
+
+[deps]
+
+files=["res://goods_data.名称.translation", "res://goods_data.行当.translation", "res://goods_data.品阶.translation", "res://goods_data.基础价值.translation", "res://goods_data.功能倾向.translation", "res://goods_data.风味描述.translation"]
+
+source_file="res://goods_data.csv"
+dest_files=["res://goods_data.名称.translation", "res://goods_data.行当.translation", "res://goods_data.品阶.translation", "res://goods_data.基础价值.translation", "res://goods_data.功能倾向.translation", "res://goods_data.风味描述.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_mfy4c"]
+
+[resource]
+script = ExtResource("1_mfy4c")
+card_id = "T09"
+card_name = "西湖龙井"
+suit = 0
+rank = 9
+base_value = 400
+description = "名动临安的珍品。"

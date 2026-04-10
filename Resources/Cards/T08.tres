@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_mjj6j"]
+
+[resource]
+script = ExtResource("1_mjj6j")
+card_id = "T08"
+card_name = "庐山云雾"
+suit = 0
+rank = 8
+base_value = 300
+description = "采自云雾缭绕之处。"

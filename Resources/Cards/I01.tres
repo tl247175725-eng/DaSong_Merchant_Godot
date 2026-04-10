@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_we1fb"]
+
+[resource]
+script = ExtResource("1_we1fb")
+card_id = "I01"
+card_name = "艾草"
+suit = 3
+base_value = 8
+description = "驱蚊辟邪。"

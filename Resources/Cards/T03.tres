@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseCard" format=3]
+
+[ext_resource type="Script" path="res://BaseCard.gd" id="1_xoyen"]
+
+[resource]
+script = ExtResource("1_xoyen")
+card_id = "T03"
+card_name = "炒青"
+suit = 0
+rank = 3
+base_value = 40
+description = "行商路上的解乏良药。"
