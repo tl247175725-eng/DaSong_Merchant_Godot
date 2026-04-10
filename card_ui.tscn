@@ -4,23 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://djih15oil6v8l" path="res://cards pictures/无标题.png" id="2_2yy3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm57c"]
-size = Vector2(201, 272)
+size = Vector2(380, 531)
 
 [node name="CardUI" type="Area2D" unique_id=823534559]
 script = ExtResource("1_gf2xd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1477040]
-scale = Vector2(0.5302629, 0.5122642)
 texture = ExtResource("2_2yy3o")
 
 [node name="NameLabel" type="Label" parent="." unique_id=1666461243]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -51.0
+offset_top = -25.0
+offset_right = 53.0
+offset_bottom = 27.0
 
 [node name="ValueLabel" type="Label" parent="." unique_id=1212448137]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -48.0
+offset_top = -19.0
+offset_right = 53.0
+offset_bottom = 19.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=641457876]
-position = Vector2(703.5, 846)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_rm57c")

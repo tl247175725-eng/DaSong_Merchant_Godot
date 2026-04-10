@@ -17,7 +17,7 @@ func _process(delta):
 	if is_dragging:
 		global_position = get_global_mouse_position() + drag_offset
 	else:
-		# 【关键修改】改用 position，这样它会相对于 HandUI 这个担子来排队
+		# 改成 position，它就学会“相对于担子”排队了
 		position = position.lerp(target_position, 15 * delta)
 
 func _input_event(_viewport, event, _shape_idx):
