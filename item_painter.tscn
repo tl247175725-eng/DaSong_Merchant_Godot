@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://bljxw3hbqq678"]
+
+[sub_resource type="GDScript" id="GDScript_olqtv"]
+script/source = "@tool
+extends Node2D
+
+# ==========================================
+# 大宋组件工厂 V8.1 - 救灾稳健版
+# ==========================================
+
+@export var cell_size: int = 48
+@export var grid_width: int = 40  
+@export var grid_height: int = 25 
+
+var selected_cells: Array[Vector2i] = []
+var ports_map: Dictionary = {} 
+var hovered_cell: Vector2i = Vector2i(-1, -1)
+
+# UI 引用
+var ui_panel: CanvasLayer
+var input_name: LineEdit
+var input_price: SpinBox
+var type_selector: OptionButton
+
+# 【变量保护】：显式定义类型，防止 Nil 报错
+var ui_rect_x_start: float = 1550.0 
+
+func _ready():
+	_setup_ui()
+
+func _setup_ui():
+	# 清理旧 UI，防止重复叠加
+	if has_node(\"PainterUI\"): 
+		get_node(\"PainterUI\").queue_free()
+		await get_tree().process_frame
+	
+	ui_panel = CanvasLayer.new()
+	ui_panel.name = \"PainterUI\"
+	add_child(ui_panel)
+	
+	var bg = ColorRect.new()
+	bg.color = Color(0, 0, 0, 0.9) 
+	bg.custom_minimum_size = Vector2(320, 550)
+	bg.position = Vector2(ui_rect_x_start, 50) 
+	bg.mouse_filter = Control.MOUSE_FILTER_STOP # 拦截点击
+	ui_panel.add_child(bg)
+	
+	var vbox = VBoxContainer.new()
+	vbox.position = Vector2(20, 20)
+	vbox.custom_minimum_size = Vector2(280, 0)
+	bg.add_child(vbox)
+	
+	_add_title(vbox, \"--- 大宋组件工厂 V8.1 ---\")
+	
+	_add_label(vbox, \"1. 选择类型:\")
+	type_selector = OptionButton.new()
+	type_selector.add_item(\"普通货品 (Goods)\", 0)
+	type_selector.add_item(\"载具组件 (Container)\", 1)
+	vbox.add_child(type_selector)
+	
+	_add_label(vbox, \"2. 组件名字:\")
+	input_name = LineEdit.new()
+	input_name.placeholder_text = \"例如：大宋坦克底盘\"
+	vbox.add_child(input_name)
+	
+	_add_label(vbox, \"3. 初始价格:\")
+	input_price = SpinBox.new()
+	input_price.max_value = 9999
+	input_price.value = 10
+	vbox.add_child(input_price)
+	
+	vbox.add_child(HSeparator.new())
+	
+	var btn_save = Button.new()
+	btn_save.text = \"🚀 一键生成场景 (.tscn)\"
+	btn_save.custom_minimum_size = Vector2(0, 60)
+	btn_save.pressed.connect(_on_save_pressed)
+	vbox.add_child(btn_save)
+	
+	var hint = Label.new()
+	hint.text = \"\\n[左键] 绘制格子\\n[右键] 擦除格子\\n[方向键] 设置/取消端口\\n[C] 清空画布\"
+	hint.add_theme_font_size_override(\"font_size\", 13)
+	vbox.add_child(hint)
+
+func _add_label(parent, text_content):
+	var l = Label.new()
+	l.text = text_content
+	parent.add_child(l)
+
+func _add_title(parent, text_content):
+	var l = Label.new()
+	l.text = text_content
+	l.add_theme_color_override(\"font_color\", Color.GOLD)
+	parent.add_child(l)
+
+func _on_save_pressed():
+	if selected_cells.is_empty() or input_name.text == \"\": return
+	
+	var min_x = 999; var min_y = 999
+	for c in selected_cells:
+		min_x = min(min_x, c.x); min_y = min(min_y, c.y)
+	
+	var final_shapes: Array[Vector2i] = []
+	var final_ports: Array[Vector4i] = [] 
+	
+	for c in selected_cells:
+		var local_c = c - Vector2i(min_x, min_y)
+		final_shapes.append(local_c)
+		if ports_map.has(c):
+			for p_dir in ports_map[c]:
+				final_ports.append(Vector4i(local_c.x, local_c.y, p_dir.x, p_dir.y))
+
+	var new_item = BaseItem.new()
+	new_item.name = input_name.text 
+	new_item.item_name = input_name.text
+	new_item.item_type = type_selector.get_selected_id()
+	# 确保 base_price 存在于 BaseItem 中
+	if \"base_price\" in new_item:
+		new_item.base_price = int(input_price.value)
+		
+	new_item.shape_offsets = final_shapes
+	new_item.specific_ports = final_ports 
+	new_item.base_color = Color(0.5, 0.3, 0.2) if new_item.item_type == 1 else Color(0.3, 0.5, 0.8)
+
+	var label = Label.new()
+	label.name = \"Label\"
+	new_item.add_child(label)
+	label.owner = new_item
+
+	var scene = PackedScene.new()
+	scene.pack(new_item)
+	var folder = \"res://src/containers/\" if new_item.item_type == 1 else \"res://src/items/\"
+	if not DirAccess.dir_exists_absolute(folder): DirAccess.make_dir_recursive_absolute(folder)
+	
+	var file_path = folder + input_name.text + \".tscn\"
+	ResourceSaver.save(scene, file_path)
+	print(\"✅ 生成成功: \", file_path)
+
+func _draw():
+	# 安全检查，防止绘制崩溃
+	if cell_size <= 0: return
+
+	# 1. 绘制网格
+	var line_color = Color(0.25, 0.25, 0.25, 0.8)
+	for x in range(grid_width + 1):
+		draw_line(Vector2(x * cell_size, 0), Vector2(x * cell_size, grid_height * cell_size), line_color)
+	for y in range(grid_height + 1):
+		draw_line(Vector2(0, y * cell_size), Vector2(grid_width * cell_size, y * cell_size), line_color)
+	
+	# 2. 绘制悬停虚影
+	if hovered_cell != Vector2i(-1, -1):
+		draw_rect(Rect2(Vector2(hovered_cell) * cell_size, Vector2(cell_size, cell_size)), Color(1, 1, 1, 0.2))
+	
+	# 3. 绘制选中的格子
+	for cell in selected_cells:
+		var rect = Rect2(Vector2(cell) * cell_size, Vector2(cell_size, cell_size))
+		draw_rect(rect, Color(0, 0.8, 0.4, 0.5))
+		if ports_map.has(cell):
+			for dir in ports_map[cell]:
+				var center = (Vector2(cell) * cell_size) + Vector2(cell_size/2.0, cell_size/2.0)
+				draw_circle(center + Vector2(dir) * (cell_size / 2.0), 6.0, Color.CYAN)
+
+func _process(_delta):
+	# 【核心修复】：防止 Nil 报错。即使初始化失败，也赋予默认值。
+	var current_ui_x = ui_rect_x_start if ui_rect_x_start != null else 1550.0
+	
+	var m_pos = get_local_mouse_position()
+	if m_pos.x >= current_ui_x:
+		hovered_cell = Vector2i(-1, -1)
+	else:
+		hovered_cell = Vector2i(floor(m_pos.x / cell_size), floor(m_pos.y / cell_size))
+	queue_redraw()
+
+func _input(event):
+	# 【核心修复】：防止 Nil 报错
+	var current_ui_x = ui_rect_x_start if ui_rect_x_start != null else 1550.0
+	var m_pos = get_local_mouse_position()
+	
+	# 如果鼠标在 UI 区域，完全阻断输入
+	if m_pos.x >= current_ui_x:
+		return 
+
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			if hovered_cell != Vector2i(-1, -1) and not hovered_cell in selected_cells:
+				selected_cells.append(hovered_cell)
+		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			selected_cells.erase(hovered_cell)
+			ports_map.erase(hovered_cell)
+		queue_redraw()
+
+	if event is InputEventKey and event.pressed:
+		var dir = Vector2i.ZERO
+		match event.keycode:
+			KEY_UP: dir = Vector2i.UP
+			KEY_DOWN: dir = Vector2i.DOWN
+			KEY_LEFT: dir = Vector2i.LEFT
+			KEY_RIGHT: dir = Vector2i.RIGHT
+			KEY_C: selected_cells.clear(); ports_map.clear()
+		
+		if dir != Vector2i.ZERO and hovered_cell in selected_cells:
+			if not ports_map.has(hovered_cell): ports_map[hovered_cell] = []
+			if dir in ports_map[hovered_cell]: ports_map[hovered_cell].erase(dir)
+			else: ports_map[hovered_cell].append(dir)
+		queue_redraw()
+"
+
+[node name="ItemPainter" type="Node2D" unique_id=1911398708]
+script = SubResource("GDScript_olqtv")
