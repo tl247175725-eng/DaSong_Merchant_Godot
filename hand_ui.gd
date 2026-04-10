@@ -8,13 +8,17 @@ var deck: Array = []
 var original_card_height: float = 0.0
 
 func _ready():
-	# 逻辑：先实例化一个临时卡牌来获取它的原始尺寸，或者直接指定你的设计高度
-	# 假设你的卡牌场景根节点是一个 ColorRect 或 Panel
+	# 1. 安全检查：如果忘记赋值，报错提示而不是直接崩溃
+	if card_scene == null:
+		push_error("合伙人！HandUI 里的 Card Scene 没赋值啊！快去 Inspector 里拖一下。")
+		return
+
+	# 2. 获取原始尺寸
 	var temp_card = card_scene.instantiate()
 	original_card_height = temp_card.size.y 
-	temp_card.queue_free() # 获取完就释放
+	temp_card.queue_free()
 	
-	# 监听窗口缩放
+	# 3. 初始化布局
 	get_tree().root.size_changed.connect(_reposition_hand)
 	_reposition_hand()
 
