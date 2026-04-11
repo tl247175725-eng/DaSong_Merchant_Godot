@@ -4,19 +4,18 @@ extends Control
 @onready var back_sprites = $BackSprites
 
 func update_pile_view(count: int):
-	# 1. 尺寸对齐：获取和手牌一样的缩放比例
+	# 1. 强制对齐比例：读取屏幕高度计算 22% 的缩放
 	var screen_h = get_viewport_rect().size.y
-	# 我们在 hand_ui 里规定的高度是屏幕的 22%，原始高度是 531 [cite: 50, 262, 263]
+	# 531 是原始高度，这里确保牌堆和手里的牌看起来一样大
 	var target_scale = (screen_h * 0.22) / 531.0
 	self.scale = Vector2(target_scale, target_scale)
 	
-	# 2. 视觉厚度：根据剩余张数显示重叠
-	var children = back_sprites.get_children()
-	for i in range(children.size()):
-		var sprite = children[i]
-		# 每 10 张牌多显示一层 
+	# 2. 厚度模拟：偏移层叠
+	var layers = back_sprites.get_child_count()
+	for i in range(layers):
+		var sprite = back_sprites.get_child(i)
 		sprite.visible = count > (i * 10)
-		# 向上向左轻微偏移，制造 3D 堆叠感
-		sprite.position = Vector2(-i * 4, -i * 4)
-		# 颜色稍微调暗一点，区分层级
-		sprite.modulate = Color(1.0 - i*0.05, 1.0 - i*0.05, 1.0 - i*0.05)
+		# 制造视觉厚度：偏移 (-5, -5) 产生堆叠效果
+		sprite.position = Vector2(-i * 5, -i * 5)
+		# 调暗底层，模拟阴影
+		sprite.modulate = Color(1.0 - i * 0.05, 1.0 - i * 0.05, 1.0 - i * 0.05)
