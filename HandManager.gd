@@ -25,3 +25,11 @@ func sort_hand():
 func update_ui():
 	# 这里后续连接你的 UI 渲染逻辑，让卡牌在屏幕上飞到正确位置
 	print("手牌已自动理货：", hand_cards.map(func(c): return c.card_name))
+	
+func add_card_with_animation(card_node: Node2D, start_pos: Vector2):
+	add_child(card_node)
+	card_node.global_position = start_pos # 从牌堆坐标开始
+	cards_in_hand.append(card_node)
+	
+	# 触发重新排列，卡牌会 lerp 到 target_position
+	_reposition_hand()

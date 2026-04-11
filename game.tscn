@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dkcbo8o4he0t1" path="res://hand_ui.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dsky7lon3l85v" path="res://GameManager.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://dk8f8d8py13mq" path="res://deck_manager.gd" id="3_7jktm"]
+[ext_resource type="Script" uid="uid://cjmow3xhx3skx" path="res://DrawPileUI.gd" id="3_fc0e3"]
+[ext_resource type="Script" uid="uid://ctcftvsasjbna" path="res://TableManager.gd" id="3_ryrav"]
+[ext_resource type="Texture2D" uid="uid://djih15oil6v8l" path="res://cards pictures/无标题.png" id="4_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=534657891]
 script = ExtResource("1_e2o6t")
@@ -22,3 +26,37 @@ color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 position = Vector2(960, 800)
 script = ExtResource("1_80nbo")
 spacing = 150.0
+
+[node name="TableManager" type="Control" parent="." unique_id=774577645]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ryrav")
+
+[node name="CardContainer" type="Control" parent="TableManager" unique_id=515759812]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RedRope" type="Line2D" parent="TableManager" unique_id=1181671954]
+default_color = Color(0.7921569, 0, 0.13725491, 0.8666667)
+
+[node name="DeckManager" type="Node" parent="." unique_id=2022066380]
+script = ExtResource("3_7jktm")
+
+[node name="DrawPileUI" type="Control" parent="." unique_id=1902006034]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_fc0e3")
+
+[node name="BackSprites" type="Control" parent="DrawPileUI" unique_id=1215509689]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="DrawPileUI/BackSprites" unique_id=1609890082]
+position = Vector2(1707, 788)
+texture = ExtResource("4_7jktm")

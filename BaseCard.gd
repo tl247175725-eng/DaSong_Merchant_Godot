@@ -15,15 +15,13 @@ enum Suit { TEA, PORCELAIN, SILK, INCENSE, NONE }
 
 # 核心判定逻辑：这张牌能不能接在 last_card 后面？
 func can_link_to(last_card: BaseCard) -> bool:
-	if self.type == CardType.MANEUVER: return true # 功能牌万能接入
-	if last_card == null: return true # 第一张牌随便放
+	if self.type == CardType.MANEUVER: return true 
+	if last_card == null: return true 
 	
-	# 货物牌规则：同花色 或 点数相邻
 	var suit_match = (self.suit == last_card.suit)
 	var rank_match = abs(self.rank - last_card.rank) <= 1
 	
-	# 绸缎特殊加成：点数跨度为2
 	if self.suit == Suit.SILK or last_card.suit == Suit.SILK:
 		rank_match = abs(self.rank - last_card.rank) <= 2
 		
-	return suit_match or rank_match
+	return suit_match or rank_match # 确保这一行是完整的

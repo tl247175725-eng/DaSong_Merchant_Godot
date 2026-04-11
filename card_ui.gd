@@ -26,6 +26,17 @@ func _input(event):
 		if not event.pressed and is_dragging:
 			is_dragging = false
 			z_index = get_index() 
+			
+			# 简单粗暴的判定：如果拖到了屏幕中上方（Y坐标小于屏幕高度的 60%）
+			var screen_h = get_viewport_rect().size.y
+			if global_position.y < screen_h * 0.6:
+				# 尝试出牌，呼叫 GameManager (假设 GameManager 挂载在 "/root/Game")
+				var game_mgr = get_node("/root/Game") 
+				if game_mgr.try_play_card(self):
+					# 出牌成功，不需要自己发信号了，GameManager 已经接管了这个节点
+					return 
+			
+			# 没拖到判定区，或者接龙失败，发信号让 HandUI 把牌吸回去
 			drag_ended.emit()
 
 # 解决“重叠选中”：拦截输入事件
