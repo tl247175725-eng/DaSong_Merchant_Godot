@@ -22,17 +22,20 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
-[node name="HandUI" type="Node2D" parent="." unique_id=1067427791]
-position = Vector2(960, 800)
-script = ExtResource("1_80nbo")
-spacing = 150.0
-
 [node name="TableManager" type="Control" parent="." unique_id=774577645]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_ryrav")
+
+[node name="HandUI" type="Control" parent="TableManager" unique_id=665718856]
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 800.0
+offset_right = 960.0
+offset_bottom = 800.0
+script = ExtResource("1_80nbo")
 
 [node name="CardContainer" type="Control" parent="TableManager" unique_id=515759812]
 anchors_preset = 0
