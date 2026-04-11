@@ -13,7 +13,7 @@ func reposition_pile():
 	self.scale = Vector2(scale_factor, scale_factor)
 	
 	# 强制锁定：屏幕右下角数值 13
-	self.set_anchors_and_offsets_preset(13)
+	self.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	var margin = 40.0
 	var pile_w = 380.0 * scale_factor
 	var pile_h = 531.0 * scale_factor

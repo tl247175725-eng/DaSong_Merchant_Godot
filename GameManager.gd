@@ -1,18 +1,16 @@
-# GameManager.gd
-extends Node
-
-@export var max_breath: int = 3 # 气口上限 [cite: 28]
-var current_breath: int
-
-@onready var hand_ui = $HandUI
+@onready var hand_ui = get_node_or_null("HandUI") 
 @onready var table_manager = $TableManager
 @onready var deck_manager = $DeckManager
 @onready var draw_pile_ui = $DrawPileUI
 
 func _ready():
+	if hand_ui == null:
+		# 如果报错，请去编辑器看 HandUI 的名字是不是真的叫 HandUI
+		push_error("错误：在主场景找不到 HandUI 节点！请检查路径。")
+		return
+	
 	current_breath = max_breath
 	deck_manager.init_deck()
-	# 开局发牌：统一使用带动画的函数 [cite: 41, 42]
 	for i in range(5):
 		_draw_card_to_hand_with_anim()
 

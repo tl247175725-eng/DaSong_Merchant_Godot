@@ -19,25 +19,25 @@ func get_last_card_data() -> BaseCard:
 func add_card_to_table(card_node: Node2D):
 	if hint_box.visible: hint_box.visible = false 
 	
-	# 核心修复：reparent 会自动处理坐标转换，彻底解决飞向左上角 [cite: 10]
 	card_node.reparent(card_container)
 	
 	var total_count = table_cards.size()
 	var col = total_count % cards_per_row
-	var row = int(total_count / 8.0)
-	
+	var row = int(total_count / float(cards_per_row)) # 这里的 row 现在会被用到
+
 	var screen_center = get_viewport_rect().size / 2.0
 	var spacing_x = 160.0
 	var start_x = screen_center.x - ((cards_per_row - 1) * spacing_x / 2.0)
-	# 目标位置锁定：使用全局坐标 global_position
-	var target_gp = Vector2(start_x + col * spacing_x, screen_center.y - 150)
+	
+	# 修改点：将 row 加入计算，这样放满 8 张后会自动下移
+	var target_gp = Vector2(start_x + col * spacing_x, screen_center.y - 150 + (row * 200))
 	
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(card_node, "global_position", target_gp, 0.4).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(card_node, "scale", Vector2(0.5, 0.5), 0.4)
 	
 	table_cards.append(card_node)
-	_update_red_rope() # 绘制红绳连击 [cite: 6]
+	_update_red_rope()
 
 func _update_red_rope():
 	if not red_rope: return
