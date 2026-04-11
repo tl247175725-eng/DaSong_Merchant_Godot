@@ -28,8 +28,11 @@ func _reposition_hand():
 	var scale_factor = target_h / original_card_height
 	
 	# 核心修复：直接使用数值 12 (Bottom Center) 彻底解决报错
-	self.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_CENTER)
-	self.position.y = screen_size.y - 20 
+	self.anchor_left = 0.5
+	self.anchor_right = 0.5
+	self.anchor_top = 1.0
+	self.anchor_bottom = 1.0
+	self.position.y = screen_size.y - 20
 
 	var card_w = 380.0 * scale_factor
 	var dynamic_spacing = card_w * 0.9

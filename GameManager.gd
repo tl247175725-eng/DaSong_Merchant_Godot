@@ -1,4 +1,9 @@
-@onready var hand_ui = get_node_or_null("HandUI") 
+extends Node
+
+@export var max_breath: int = 3
+var current_breath: int
+
+@onready var hand_ui = $HandUI
 @onready var table_manager = $TableManager
 @onready var deck_manager = $DeckManager
 @onready var draw_pile_ui = $DrawPileUI

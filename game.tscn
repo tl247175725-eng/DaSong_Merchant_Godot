@@ -9,7 +9,15 @@
 
 [node name="Game" type="Node2D" unique_id=534657891]
 script = ExtResource("1_e2o6t")
-max_breath = null
+
+[node name="HandUI" type="Control" parent="." unique_id=665718856]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 800.0
+offset_right = 960.0
+offset_bottom = 800.0
+script = ExtResource("1_80nbo")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1384810072]
 layer = -1
@@ -29,15 +37,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_ryrav")
-
-[node name="HandUI" type="Control" parent="TableManager" unique_id=665718856]
-anchors_preset = 0
-offset_left = 960.0
-offset_top = 800.0
-offset_right = 960.0
-offset_bottom = 800.0
-script = ExtResource("1_80nbo")
-card_scene = null
 
 [node name="CardContainer" type="Control" parent="TableManager" unique_id=515759812]
 anchors_preset = 0
