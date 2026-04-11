@@ -73,3 +73,15 @@ func _reposition_hand():
 		
 		# 处理层级
 		card.z_index = i
+# 核心：补全被调用的动画发牌函数
+func add_card_with_animation(card_node: Node2D, start_pos: Vector2):
+	add_child(card_node)
+	# 初始位置设为右侧牌堆，实现飞入效果 
+	card_node.global_position = start_pos
+	cards_in_hand.append(card_node)
+	
+	if card_node.has_signal("drag_ended"):
+		card_node.drag_ended.connect(_reposition_hand)
+	
+	# 触发重新排序，card_ui 内的 lerp 会让卡牌滑向新手牌位置 
+	_reposition_hand()
