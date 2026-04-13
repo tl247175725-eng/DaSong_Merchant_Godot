@@ -9,4 +9,6 @@ card_name = "奇楠香"
 suit = 3
 rank = 12
 base_value = 1400
+card_type = 1
+effect_id = "INC_CLEAR_ALL_BLOCK"
 description = "沉香中极品。"

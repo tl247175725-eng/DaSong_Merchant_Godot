@@ -9,4 +9,6 @@ card_name = "汝窑天青碟"
 suit = 1
 rank = 12
 base_value = 1800
+card_type = 1
+effect_id = "POR_TRIPLE_DRAW_RISK500"
 description = "雨过天青云破处。"

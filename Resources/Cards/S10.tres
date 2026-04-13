@@ -9,4 +9,6 @@ card_name = "缂丝花卉"
 suit = 2
 rank = 10
 base_value = 720
+card_type = 1
+effect_id = "SILK_SKIP_SETTLE"
 description = "一寸缂丝一寸金。"

@@ -9,4 +9,6 @@ card_name = "没药"
 suit = 3
 rank = 8
 base_value = 290
+card_type = 1
+effect_id = "INC_BURN_SETTLE_BONUS"
 description = "西域传来的名贵香料。"

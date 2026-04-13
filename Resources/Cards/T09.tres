@@ -9,4 +9,6 @@ card_name = "西湖龙井"
 suit = 0
 rank = 9
 base_value = 400
+card_type = 1
+effect_id = "TEA_DRAW2_DISCARD1"
 description = "名动临安的珍品。"

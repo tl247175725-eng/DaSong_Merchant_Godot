@@ -9,4 +9,6 @@ card_name = "龙涎香"
 suit = 3
 rank = 10
 base_value = 600
+card_type = 1
+effect_id = "INC_CONVERT_SETTLE"
 description = "海中奇宝。"

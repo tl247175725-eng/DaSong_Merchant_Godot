@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5h0vvuuy7hej"]
+
+[ext_resource type="Script" uid="uid://e18wf1ypus0b" path="res://block_card_ui.gd" id="1_iixf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4xe0"]
+size = Vector2(380, 531)
+
+[node name="block_card_ui" type="Area2D" unique_id=1339727692]
+script = ExtResource("1_iixf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=65450885]
+shape = SubResource("RectangleShape2D_i4xe0")
+
+[node name="MarkLabel" type="Label" parent="." unique_id=232383082]
+offset_left = -160.0
+offset_top = -240.0
+offset_right = -120.0
+offset_bottom = -217.0
+
+[node name="NameLabel" type="Label" parent="." unique_id=2049508239]
+offset_left = -100.0
+offset_top = -240.0
+offset_right = -60.0
+offset_bottom = -217.0
+
+[node name="EffectLabel" type="Label" parent="." unique_id=290985590]
+offset_left = -140.0
+offset_right = -100.0
+offset_bottom = 23.0

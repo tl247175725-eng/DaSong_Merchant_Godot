@@ -9,4 +9,6 @@ card_name = "杭罗"
 suit = 2
 rank = 8
 base_value = 380
+card_type = 1
+effect_id = "SILK_WILD_NEXT"
 description = "透气性极好。"

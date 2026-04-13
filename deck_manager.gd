@@ -44,3 +44,11 @@ func _reshuffle_discard_into_draw():
 	draw_pile = discard_pile.duplicate()
 	discard_pile.clear()
 	draw_pile.shuffle()
+
+func burn_random_settle():
+	var settle_cards = draw_pile.filter(func(c): return c.is_settle_card())
+	if settle_cards.is_empty():
+		return
+	var target = settle_cards[randi() % settle_cards.size()]
+	draw_pile.erase(target)
+	print("🔥 随机销毁牌库中1张结算牌：", target.card_name)

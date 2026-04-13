@@ -9,4 +9,6 @@ card_name = "宋锦匹料"
 suit = 2
 rank = 12
 base_value = 1500
+card_type = 1
+effect_id = "SILK_BURN_ALL_SETTLE"
 description = "纹样雅致。"

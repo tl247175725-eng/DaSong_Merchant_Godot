@@ -9,4 +9,6 @@ card_name = "黄山毛峰"
 suit = 0
 rank = 6
 base_value = 160
+card_type = 1
+effect_id = "TEA_DRAW1"
 description = "银毫显露。"

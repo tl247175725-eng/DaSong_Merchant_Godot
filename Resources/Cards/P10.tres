@@ -9,4 +9,6 @@ card_name = "钧窑玫瑰紫"
 suit = 1
 rank = 10
 base_value = 800
+card_type = 1
+effect_id = "POR_DOUBLE_MULTI_BREATH"
 description = "入窑一色出窑万彩。"

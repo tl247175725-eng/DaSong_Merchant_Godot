@@ -9,4 +9,6 @@ card_name = "麝香"
 suit = 3
 rank = 6
 base_value = 150
+card_type = 1
+effect_id = "INC_BURN_DRAW2"
 description = "穿透力十足。"

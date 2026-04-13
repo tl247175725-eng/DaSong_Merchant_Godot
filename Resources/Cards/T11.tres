@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BaseCard" format=3]
+[gd_resource type="Resource" script_class="BaseCard" format=3 uid="uid://oq42mbo7t2cm"]
 
-[ext_resource type="Script" path="res://BaseCard.gd" id="1_hwpie"]
+[ext_resource type="Script" uid="uid://dag1ms0oxj2ot" path="res://BaseCard.gd" id="1_hwpie"]
 
 [resource]
 script = ExtResource("1_hwpie")
@@ -9,4 +9,6 @@ card_name = "顾渚紫笋"
 suit = 0
 rank = 11
 base_value = 750
+card_type = 1
+effect_id = "TEA_BREATH2_WILDLINK"
 description = "皇室贡茶。"

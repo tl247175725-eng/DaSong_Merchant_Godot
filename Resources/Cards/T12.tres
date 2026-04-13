@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BaseCard" format=3]
+[gd_resource type="Resource" script_class="BaseCard" format=3 uid="uid://c8lycvo1jhd5x"]
 
-[ext_resource type="Script" path="res://BaseCard.gd" id="1_06pgr"]
+[ext_resource type="Script" uid="uid://dag1ms0oxj2ot" path="res://BaseCard.gd" id="1_06pgr"]
 
 [resource]
 script = ExtResource("1_06pgr")
@@ -9,4 +9,6 @@ card_name = "大红袍母株"
 suit = 0
 rank = 12
 base_value = 1000
+card_type = 1
+effect_id = "TEA_DRAW3_BONUS500"
 description = "峭壁上的孤品。"

@@ -9,4 +9,6 @@ card_name = "熟绫"
 suit = 2
 rank = 6
 base_value = 190
+card_type = 1
+effect_id = "SILK_PUSH_SETTLE"
 description = "手感顺滑。"

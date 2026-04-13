@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dionv")
 card_id = "S03"
-card_name = "绣线(12色)"
+card_name = "绣线"
 suit = 2
 rank = 3
 base_value = 50

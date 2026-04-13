@@ -9,4 +9,6 @@ card_name = "仙茶"
 suit = 0
 rank = 13
 base_value = 1500
+card_type = 2
+effect_id = "SETTLE_TEA"
 description = "传闻饮之可延年益寿。"

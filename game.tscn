@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://cjmow3xhx3skx" path="res://DrawPileUI.gd" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://ctcftvsasjbna" path="res://TableManager.gd" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://djih15oil6v8l" path="res://cards pictures/无标题.png" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://c7rdkutjxo5cn" path="res://StatusBar.gd" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://cyalyl6mehpv4" path="res://PatienceBar.gd" id="8_j5wjh"]
+[ext_resource type="Script" uid="uid://cyl8pht5bffa3" path="res://EffectSystem.gd" id="9_vef74"]
 
 [node name="Game" type="Node2D" unique_id=534657891]
 script = ExtResource("1_e2o6t")
@@ -13,10 +16,9 @@ script = ExtResource("1_e2o6t")
 [node name="HandUI" type="Control" parent="." unique_id=665718856]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 960.0
-offset_top = 800.0
-offset_right = 960.0
-offset_bottom = 800.0
+offset_top = 772.0
+offset_right = 1920.0
+offset_bottom = 1072.0
 script = ExtResource("1_80nbo")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1384810072]
@@ -100,3 +102,41 @@ texture = ExtResource("4_7jktm")
 [node name="Sprite2D5" type="Sprite2D" parent="DrawPileUI/BackSprites" unique_id=860191665]
 position = Vector2(1707, 788)
 texture = ExtResource("4_7jktm")
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1056668789]
+
+[node name="StatusBar" type="Control" parent="HUDLayer" unique_id=185371075]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_eow3j")
+
+[node name="BreathLabel" type="Label" parent="HUDLayer/StatusBar" unique_id=592649641]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 23.0
+
+[node name="MultiplierLabel" type="Label" parent="HUDLayer/StatusBar" unique_id=94258275]
+layout_mode = 0
+
+[node name="ChainValueLabel" type="Label" parent="HUDLayer/StatusBar" unique_id=1175836789]
+layout_mode = 0
+
+[node name="TotalMoneyLabel" type="Label" parent="HUDLayer/StatusBar" unique_id=75426956]
+layout_mode = 0
+
+[node name="PatienceBar" type="Control" parent="HUDLayer" unique_id=1038598869]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("8_j5wjh")
+
+[node name="Label" type="Label" parent="HUDLayer/PatienceBar" unique_id=1365479541]
+layout_mode = 0
+
+[node name="Bar" type="ColorRect" parent="HUDLayer/PatienceBar" unique_id=71848478]
+layout_mode = 0
+
+[node name="Fill" type="ColorRect" parent="HUDLayer/PatienceBar" unique_id=29674662]
+layout_mode = 0
+
+[node name="EffectSystem" type="Node" parent="." unique_id=1224895606]
+script = ExtResource("9_vef74")

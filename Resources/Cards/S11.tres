@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BaseCard" format=3]
+[gd_resource type="Resource" script_class="BaseCard" format=3 uid="uid://dnm4scmnf3dr2"]
 
-[ext_resource type="Script" path="res://BaseCard.gd" id="1_lp8t4"]
+[ext_resource type="Script" uid="uid://dag1ms0oxj2ot" path="res://BaseCard.gd" id="1_lp8t4"]
 
 [resource]
 script = ExtResource("1_lp8t4")
@@ -9,4 +9,6 @@ card_name = "妆花缎"
 suit = 2
 rank = 11
 base_value = 1000
+card_type = 1
+effect_id = "SILK_CONVERT_BLOCK"
 description = "挖花妆彩。"

@@ -9,4 +9,6 @@ card_name = "龙泉青瓷壶"
 suit = 1
 rank = 8
 base_value = 420
+card_type = 1
+effect_id = "POR_TRIPLE_DISCARD1"
 description = "翠绿晶莹。"

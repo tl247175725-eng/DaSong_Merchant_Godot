@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BaseCard" format=3]
+[gd_resource type="Resource" script_class="BaseCard" format=3 uid="uid://byxbx2lafysa4"]
 
-[ext_resource type="Script" path="res://BaseCard.gd" id="1_nc4ss"]
+[ext_resource type="Script" uid="uid://dag1ms0oxj2ot" path="res://BaseCard.gd" id="1_nc4ss"]
 
 [resource]
 script = ExtResource("1_nc4ss")
@@ -9,4 +9,6 @@ card_name = "凤羽锦"
 suit = 2
 rank = 13
 base_value = 2500
+card_type = 2
+effect_id = "SETTLE_SILK"
 description = "传说取凤凰之羽。"

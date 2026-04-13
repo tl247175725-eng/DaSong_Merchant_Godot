@@ -9,4 +9,6 @@ card_name = "庐山云雾"
 suit = 0
 rank = 8
 base_value = 300
+card_type = 1
+effect_id = "TEA_PEEK3"
 description = "采自云雾缭绕之处。"

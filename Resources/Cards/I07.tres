@@ -9,4 +9,6 @@ card_name = "降真香"
 suit = 3
 rank = 7
 base_value = 210
+card_type = 1
+effect_id = "INC_BURN_BLOCK"
 description = "燃之可招引仙鹤。"

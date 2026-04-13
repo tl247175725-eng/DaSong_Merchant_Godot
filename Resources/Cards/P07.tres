@@ -9,4 +9,6 @@ card_name = "磁州窑瓶"
 suit = 1
 rank = 7
 base_value = 300
+card_type = 1
+effect_id = "POR_MULTI_RISK200"
 description = "黑白对比鲜明。"

@@ -9,4 +9,6 @@ card_name = "建窑兔毫盏"
 suit = 0
 rank = 10
 base_value = 550
+card_type = 1
+effect_id = "TEA_CHAIN_BONUS"
 description = "斗茶必备。"

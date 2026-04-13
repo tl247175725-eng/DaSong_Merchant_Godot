@@ -9,4 +9,6 @@ card_name = "云缎"
 suit = 2
 rank = 9
 base_value = 520
+card_type = 1
+effect_id = "SILK_DRAW2_BURN"
 description = "缎面光亮如镜。"

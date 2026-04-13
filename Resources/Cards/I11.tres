@@ -9,4 +9,6 @@ card_name = "麒麟竭"
 suit = 3
 rank = 11
 base_value = 900
+card_type = 1
+effect_id = "INC_BURN_ALL_NEGATIVE"
 description = "传说龙血所化。"

@@ -9,4 +9,6 @@ card_name = "秘色瓷瓶"
 suit = 1
 rank = 13
 base_value = 3000
+card_type = 2
+effect_id = "SETTLE_POR"
 description = "传闻中的禁忌之色。"

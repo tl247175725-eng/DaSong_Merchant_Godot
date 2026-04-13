@@ -17,42 +17,53 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_rm57c")
 
 [node name="SuitLabel" type="Label" parent="." unique_id=670038466]
-offset_left = -182.0
+offset_left = -175.0
 offset_top = -255.0
-offset_right = -102.0
+offset_right = -95.0
 offset_bottom = -199.0
 theme_override_font_sizes/font_size = 40
 text = "【茶】"
 
-[node name="NumberLabel" type="Label" parent="." unique_id=1212448137]
-offset_left = -138.0
-offset_top = -190.0
-offset_right = -85.0
-offset_bottom = -134.0
-theme_override_font_sizes/font_size = 40
-text = "13"
+[node name="QualityLabel" type="Label" parent="." unique_id=2006326449]
+offset_left = -167.0
+offset_top = -183.0
+offset_right = -127.0
+offset_bottom = -160.0
 
 [node name="NameLabel" type="Label" parent="." unique_id=1666461243]
-offset_left = -71.0
-offset_top = -253.0
-offset_right = 69.0
-offset_bottom = -201.0
+offset_left = -68.0
+offset_top = -254.0
+offset_right = 72.0
+offset_bottom = -202.0
 theme_override_font_sizes/font_size = 35
 text = "西湖龙井"
 
+[node name="NumberLabel" type="Label" parent="." unique_id=1212448137]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = -183.0
+offset_right = 25.0
+offset_bottom = -127.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "13"
+
 [node name="EffectLabel" type="Label" parent="." unique_id=850185841]
-offset_left = -172.0
-offset_top = -26.0
-offset_right = 169.0
-offset_bottom = 148.0
+offset_left = -190.0
+offset_top = 30.0
+offset_right = 190.0
+offset_bottom = 204.0
 text = "床前明月光"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="DescLabel" type="Label" parent="." unique_id=1066343573]
-offset_left = -171.0
-offset_top = 199.0
-offset_right = 174.0
-offset_bottom = 258.0
+offset_left = -190.0
+offset_top = 210.0
+offset_right = 190.0
+offset_bottom = 269.0
 text = "疑似地上霜"
+horizontal_alignment = 1
 autowrap_mode = 3

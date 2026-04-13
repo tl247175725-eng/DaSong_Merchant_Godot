@@ -9,4 +9,6 @@ card_name = "沉香木"
 suit = 3
 rank = 9
 base_value = 400
+card_type = 1
+effect_id = "INC_BURN_RANDOM_SETTLE"
 description = "沉水之香。"

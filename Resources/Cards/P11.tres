@@ -9,4 +9,6 @@ card_name = "哥窑开片瓶"
 suit = 1
 rank = 11
 base_value = 1200
+card_type = 1
+effect_id = "POR_CHAIN_MULTI15"
 description = "纹理如冰裂。"

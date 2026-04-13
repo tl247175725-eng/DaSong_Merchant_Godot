@@ -9,4 +9,6 @@ card_name = "返魂香"
 suit = 3
 rank = 13
 base_value = 2200
+card_type = 2
+effect_id = "SETTLE_INC"
 description = "极其妖异。"
